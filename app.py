@@ -9,6 +9,8 @@ def cadastrar_aluno(nome, idade):
     """Cadastra um aluno e retorna o registro criado."""
     if not nome:
         raise ValueError("O nome e obrigatorio")
+    if idade < 0:
+        raise ValueError("A idade nao pode ser negativa")
     aluno = {"nome": nome, "idade": idade}
     alunos.append(aluno)
     return aluno
