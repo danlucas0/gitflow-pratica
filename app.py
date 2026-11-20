@@ -1,17 +1,17 @@
 """Sistema simples de cadastro de alunos."""
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 alunos = []
 
 
 def cadastrar_aluno(nome, idade):
     """Cadastra um aluno e retorna o registro criado."""
-    if not nome:
+    if not nome or not nome.strip():
         raise ValueError("O nome e obrigatorio")
     if idade < 0:
         raise ValueError("A idade nao pode ser negativa")
-    aluno = {"nome": nome, "idade": idade}
+    aluno = {"nome": nome.strip(), "idade": idade}
     alunos.append(aluno)
     return aluno
 
